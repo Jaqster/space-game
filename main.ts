@@ -22,6 +22,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, otherSprite) {
     otherSprite.destroy()
     sprite.destroy(effects.disintegrate, 500)
+    info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy(effects.fire, 500)
@@ -52,6 +53,7 @@ mySprite = sprites.create(img`
 mySprite.setPosition(79, 111)
 controller.moveSprite(mySprite, 100, 0)
 mySprite.setStayInScreen(true)
+info.setScore(0)
 game.onUpdateInterval(1000, function () {
     asteroid = sprites.createProjectileFromSide(img`
         . . . . . . . . . c c 8 . . . . 
