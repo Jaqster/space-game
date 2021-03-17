@@ -27,6 +27,7 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, oth
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy(effects.fire, 500)
     scene.cameraShake(4, 500)
+    info.changeLifeBy(-1)
 })
 let asteroid: Sprite = null
 let projectile2: Sprite = null
